@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Permit;
+use App\Models\RealPropertyTax;
+use App\Models\Ordinance;
+use App\Models\LocalCivilRegistry;
+use App\Models\OccupationalPermit;
 
 class User extends Authenticatable
 {
@@ -42,4 +47,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // In app/Models/User.php
+
+public function permits() {
+    return $this->hasMany(Permit::class);
+}
+public function realPropertyTaxes() {
+    return $this->hasMany(RealPropertyTax::class);
+}
+public function ordinances(){
+    return $this->hasMany(Ordinance::class);
+}
+public function localCivilRegistries(){
+    return $this->hasMany(LocalCivilRegistry::class);
+}
+public function occupationalPermits(){
+    return $this->hasMany(OccupationalPermit::class);
+}
+
+// ... (rest of the User model)
 }
