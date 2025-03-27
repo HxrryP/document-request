@@ -9,6 +9,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('permits.index')" :active="request()->routeIs('permits.index')">
+                        {{ __('Permits') }}
+                    </x-nav-link>
                 </div>
             </div>
 
